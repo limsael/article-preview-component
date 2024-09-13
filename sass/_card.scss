@@ -1,0 +1,204 @@
+.card {
+  background-color: $white;
+  max-width: 650px;
+  display: flex;
+  gap: 1.5rem;
+  border-radius: 0.6rem;
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-left-radius: 0.6rem;
+    border-bottom-left-radius: 0.6rem;
+  }
+
+  &__body {
+    padding: 1.5rem 2rem 1.5rem 1.5rem;
+    display: grid;
+    gap: 0.95rem;
+  }
+
+  &__title {
+    color: $desaturated-dark-blue;
+    font-size: 1.21rem;
+    font-weight: 700;
+  }
+
+  &__description {
+    color: $grayish-blue;
+    margin-block-end: 0.95rem;
+  }
+
+  &__profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &--share,
+    &--share-close {
+      border: 1px solid $grayish-blue;
+      padding: 0.55rem;
+      border-radius: 50%;
+      margin-inline-end: 0.95rem;
+      fill: $light-grayish-blue;
+      background-color: $light-grayish-blue;
+    }
+
+    &--share {
+      position: relative;
+      border: 1px solid $grayish-blue;
+      padding: 0.55rem;
+      border-radius: 50%;
+      margin-inline-end: 0.95rem;
+      fill: $light-grayish-blue;
+      background-color: $light-grayish-blue;
+
+      &-close {
+        display: none;
+      }
+    }
+
+    &--social {
+      position: absolute;
+      right: -115px;
+      top: -90px;
+      background-color: $very-dark-grayish-blue;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      border-radius: 0.5rem;
+      padding: 1.25rem 2.25rem 2.25rem;
+      clip-path: polygon(
+        0% 0%,
+        100% 0%,
+        100% 51%,
+        53% 53%,
+        49% 72%,
+        45% 53%,
+        0 53%
+      );
+      visibility: hidden;
+
+      &.visible {
+        visibility: visible;
+      }
+    }
+  }
+
+  &__profile--author {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+
+    img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+
+  &__profile--data {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  &__profile--name {
+    color: $desaturated-dark-blue;
+    font-weight: 700;
+  }
+
+  &__profile--date {
+    color: $grayish-blue;
+  }
+
+  &__socials--links {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-inline-start: 1.5rem;
+    margin-block-end: 1.5rem;
+
+    img {
+      width: 15px;
+    }
+  }
+
+  &__action {
+    color: $white;
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-block-end: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .card {
+    max-width: 320px;
+    margin: 0 auto;
+    flex-direction: column;
+
+    &__body {
+      padding: 0;
+    }
+
+    &__title,
+    &__description,
+    &__profile--author,
+    &__profile--share {
+      padding-inline: 1.5rem;
+    }
+
+    &__profile--author,
+    &__profile--share {
+      margin-block-end: 1.25rem;
+    }
+
+    &__img {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &__profile {
+      position: relative;
+
+      &--share {
+        position: static;
+        padding: 0.4rem;
+
+        &-close {
+          padding: 0.4rem;
+        }
+
+        &-close {
+          display: block;
+        }
+      }
+      &--social {
+        right: 0;
+        display: flex;
+        justify-content: space-around;
+        bottom: 0;
+        top: 0;
+        clip-path: none;
+        width: 100%;
+        padding-block-start: 2rem;
+        padding-block-end: 1rem;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+
+    &__socials {
+      &--links {
+        display: flex;
+        align-items: center;
+        gap: 0.9rem;
+        margin-inline-end: 0.95rem;
+      }
+    }
+  }
+}
